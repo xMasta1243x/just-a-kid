@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://kujpsqyikyd5"]
+
+[ext_resource type="PackedScene" uid="uid://2vhsn1q1fvfv" path="res://Interaction/interaction_component.tscn" id="1_yyvnn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_en4se"]
+size = Vector3(0.1, 0.5, 0.1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yyvnn"]
+data = PackedVector3Array(-0.049999997, 0.25, 0.049999997, 0.049999997, 0.25, 0.049999997, -0.049999997, -0.25, 0.049999997, 0.049999997, 0.25, 0.049999997, 0.049999997, -0.25, 0.049999997, -0.049999997, -0.25, 0.049999997, 0.049999997, 0.25, -0.049999997, -0.049999997, 0.25, -0.049999997, 0.049999997, -0.25, -0.049999997, -0.049999997, 0.25, -0.049999997, -0.049999997, -0.25, -0.049999997, 0.049999997, -0.25, -0.049999997, 0.049999997, 0.25, 0.049999997, 0.049999997, 0.25, -0.049999997, 0.049999997, -0.25, 0.049999997, 0.049999997, 0.25, -0.049999997, 0.049999997, -0.25, -0.049999997, 0.049999997, -0.25, 0.049999997, -0.049999997, 0.25, -0.049999997, -0.049999997, 0.25, 0.049999997, -0.049999997, -0.25, -0.049999997, -0.049999997, 0.25, 0.049999997, -0.049999997, -0.25, 0.049999997, -0.049999997, -0.25, -0.049999997, 0.049999997, 0.25, 0.049999997, -0.049999997, 0.25, 0.049999997, 0.049999997, 0.25, -0.049999997, -0.049999997, 0.25, 0.049999997, -0.049999997, 0.25, -0.049999997, 0.049999997, 0.25, -0.049999997, -0.049999997, -0.25, 0.049999997, 0.049999997, -0.25, 0.049999997, -0.049999997, -0.25, -0.049999997, 0.049999997, -0.25, 0.049999997, 0.049999997, -0.25, -0.049999997, -0.049999997, -0.25, -0.049999997)
+
+[node name="Switch" type="StaticBody3D" unique_id=1529541756]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=834073253]
+mesh = SubResource("BoxMesh_en4se")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=34228399]
+shape = SubResource("ConcavePolygonShape3D_yyvnn")
+
+[node name="InteractionComponent" parent="." unique_id=1137079166 node_paths=PackedStringArray("object_ref") instance=ExtResource("1_yyvnn")]
+object_ref = NodePath("..")
+interaction_type = 2

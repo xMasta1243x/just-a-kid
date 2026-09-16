@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c24c7po62wisd"]
+
+[ext_resource type="Script" uid="uid://cukvnigy6v5ju" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://drv2sgqn4g2r1" path="res://Interaction/interaction_controller.tscn" id="2_4ntmi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l8h54"]
+height = 1.0
+
+[node name="Player" type="CharacterBody3D" unique_id=1080912381]
+script = ExtResource("1_l8h54")
+
+[node name="StandingCollisionShape" type="CollisionShape3D" parent="." unique_id=649958356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_hvfyp")
+
+[node name="CrouchingCollisionShape" type="CollisionShape3D" parent="." unique_id=259265167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_l8h54")
+
+[node name="Head" type="Node3D" parent="." unique_id=589499598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Eyes" type="Node3D" parent="Head" unique_id=28781184]
+
+[node name="Camera3D" type="Camera3D" parent="Head/Eyes" unique_id=930582419]
+unique_name_in_owner = true
+fov = 90.0
+
+[node name="InteractionRaycast" type="RayCast3D" parent="Head/Eyes/Camera3D" unique_id=1613129940]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+
+[node name="Hand" type="Marker3D" parent="Head/Eyes/Camera3D" unique_id=55313222]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="StandingCheck" type="RayCast3D" parent="." unique_id=1571100643]
+target_position = Vector3(0, 2, 0)
+
+[node name="InteractionController" parent="." unique_id=1514512236 instance=ExtResource("2_4ntmi")]
+unique_name_in_owner = true
